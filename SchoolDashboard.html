@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankfield Primary and Infant School Administrator Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background-color: #f0f8ff; /* Light blue background for fallback */
+        }
+
+        /* Background Image */
+        body::before {
+            content: "";
+            background-image: url('backdrop.JPG');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3; /* Adjust opacity for fade effect */
+            z-index: -1; /* Place behind content */
+        }
+
+        /* Header with Gradient */
+        .header {
+            background: linear-gradient(90deg, rgb(35, 50, 146), rgb(242, 238, 158)); /* Darker blue */
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1.5em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Image Container */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+        }
+
+        .image-container img {
+            max-width: 80px; /* Adjusted size for uniformity */
+            width: auto;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 2px solid white; /* Adds a clean border to images */
+        }
+
+        /* Card Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 2em auto;
+            gap: 1.5em; /* Space between cards */
+            max-width: 1200px;
+            z-index: 2;
+        }
+
+        /* Individual Cards */
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 280px;
+            margin: 1em;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: #1e90ff;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #ffdd00;
+        }
+
+        .btn {
+            margin: 20px;
+            background: #2b02bf;
+            padding: 8px 25px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-right: auto;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="image-container">
+        <img src="pic1.JPG" alt="Image 1">
+        <img src="pic2.JPG" alt="Image 2">
+        <img src="pic3.JPG" alt="Image 3">
+        <img src="pic4.JPG" alt="Image 4">
+    </div>
+    <h1>The Frankfield Primary and Infant School</h1>
+    <h1>Administrator Dashboard</h1>
+</div>
+
+<a href="main.html" class="btn"> &#9664; Home</a>
+
+<div class="container">
+    <div class="card" onclick="location.href='#calendar';">
+        <h2>Calendar</h2>
+        <p>View school events & schedules</p>
+    </div>
+    <div class="card" onclick="location.href='form.html';">
+        <h2>Forms</h2>
+        <p>Access important forms</p>
+    </div>
+    <div class="card" onclick="location.href='#booklist';">
+        <h2>Booklist</h2>
+        <p>Check the booklist for each grade</p>
+    </div>
+    <div class="card" onclick="location.href='#contact';">
+        <h2>Contact</h2>
+        <p>Get in touch with us</p>
+    </div>
+    <div class="card" onclick="location.href='#feedback';">
+        <h2>Feedback</h2>
+        <p>Give us your feedback</p>
+    </div>
+    <div class="card" onclick="location.href='upload.html';">
+        <h2>Gallery</h2>
+        <p>Manage Gallery</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -27,7 +27,6 @@ header .logo img {
     height: 50px;
 }
 
-
 nav ul {
     list-style: none;
     display: flex;
@@ -43,7 +42,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 15px;
-    border: 1px solid;
+    border:  #2b02bf;
     border-radius: 5px;
     padding: 8px 20px;
 

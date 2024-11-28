@@ -13,7 +13,7 @@ function attemptLogin() {
 
         // Redirect to the dashboard after a short delay
         setTimeout(() => {
-            window.location.href = 'upload.html';
+            window.location.href = 'SchoolDashboard.html';
         }, 1500);
     } else {
         loginMessage.style.color = "#dc3545";

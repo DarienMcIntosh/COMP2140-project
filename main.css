@@ -49,6 +49,11 @@ nav ul li a {
 
 }
 
+nav ul li a:hover {
+    background-color: #2b02bf;
+    text-shadow: 1px 1px 1px black;
+}
+
 main {
     display: flex;
     padding: 2rem;

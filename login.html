@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>The Frankfield Primary & <span> Infant School Gallery</span></h1>
+    </header>
+
+    <div class="login-container">
+        <a href="index.html" class="btn"> &#9664; Back to Gallery</a>
+        <h1>Log-In</h1>
+        <p>Please Enter Your Login Credentials If You Are The School's Administrator</p>
+    
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="attemptLogin()">Log-In</button>
+        </form>
+        <p id="loginMessage"></p>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

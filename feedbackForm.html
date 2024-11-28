@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label, input, select, textarea, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        #responseMessage {
+            margin-top: 15px;
+            color: green;
+        }
+    </style>
+    <script>
+        function submitFeedback(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // Convert form data to JSON
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            fetch('http://localhost:3000/submitFeedback', { // Ensure this URL matches your API server
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(message => {
+                    document.getElementById('responseMessage').innerText = message;
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('responseMessage').innerText = 'An error occurred while submitting feedback. Please try again later.';
+                });
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Submit Your Feedback</h1>
+    <img src="images/feedback.jpg" alt="Feedback Image" style="max-width: 100%;">
+
+    <p id="responseMessage"></p>
+
+    <form id="feedbackForm" onsubmit="submitFeedback(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="feedbackType">Feedback Type:</label>
+        <select id="feedbackType" name="feedbackType" required>
+            <option value="complaint">Complaint</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="inquiry">Inquiry</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="5" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+</body>
+</html>

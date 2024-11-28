@@ -4,7 +4,7 @@
 
 header{
     text-shadow: 1px 1px 1px grey;
-    background-image: linear-gradient(to right, #f9530b, #fdf542);
+    background-image: linear-gradient(to right, #2b02bf, #fdf542);
     padding: 30px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -22,7 +22,7 @@ header  h1 span{
 
 .manage{
     margin: 20px;
-    background: #222;
+    background: #2b02bf;
     padding: 15px 40px 15px;
     border-radius: 5px;
     color: #fff;

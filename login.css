@@ -11,15 +11,20 @@ body {
     align-items: center;
 }
 
-p{
+.passage{
     color:rgb(80, 79, 79);
     padding: 10px;
     text-align: center;
+    border: 0 solid;
+    background: #fefdef;
+    border-radius: 15px;
+    padding: 20px
+
 }
 
 header{
     text-shadow: 1px 1px 2px grey;
-    background-image: linear-gradient(to right, #f9530b, #fdf542);
+    background-image: linear-gradient(to right, #2b02bf, #fdf542);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0;
     width: 99%;
@@ -41,13 +46,12 @@ header  h1 span{
 
 .btn {
     padding: 10px;
-    color: #f9530b;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s ease;
     border: 2px solid;
     font-size: 10px;
-    background: #f9530b;
+    background: #2b02bf;
     color: #fff;
 }
 
@@ -68,14 +72,14 @@ header  h1 span{
 
 input[type=text]{
     margin: 8px 0;
-    border: 2px solid  #f9530b;
+    border: 2px solid  #2b02bf;
     border-radius: 25px;
     box-sizing: border-box;
 }
 
 input[type=password] {
     margin: 8px 0 30px ;
-    border: 2px solid #f9530b;
+    border: 2px solid #2b02bf;
     border-radius: 25px;
     box-sizing: border-box;
 }
@@ -96,7 +100,7 @@ input {
 
 button {
     padding: 12px;
-    background-color: #f9530b;
+    background-color: #2b02bf;
     color: #fff;
     border: none;
     border-radius: 10px;

@@ -1,64 +1,87 @@
 const dragArea = document.querySelector('.drag-area');
-const dragText = document.querySelector('.header')
+const dragText = document.querySelector('.header');
 
 let button = document.querySelector('.button');
 let input = document.querySelector('input');
 
 let file;
 
-button.onclick = () =>{
+button.onclick = () => {
     input.click();
 };
 
-//when browse
-input.addEventListener('change', function(){
+// When browse
+input.addEventListener('change', function() {
     file = this.files[0];
     dragArea.classList.add('active');
     displayFile();
 });
 
-//when file is inside the drag area
+// When file is inside the drag area
 dragArea.addEventListener('dragover', (event) => {
     event.preventDefault();
     dragText.textContent = 'Release to upload';
     dragArea.classList.add('active');
-    //console.log('File is inside the drag area');
 });
 
-//when file leaves the drag area
+// When file leaves the drag area
 dragArea.addEventListener('dragleave', () => {
     dragText.textContent = 'Drag & Drop';
     dragArea.classList.remove('active');
-    //console.log('File left the drag area');
 });
 
+// When file is dropped in the drag area
 dragArea.addEventListener('drop', (event) => {
     event.preventDefault();
-
     file = event.dataTransfer.files[0];
-    //console.log(file);
+    dragArea.classList.add('active');
     displayFile();
 });
 
-function displayFile(){
+function displayFile() {
     let fileType = file.type;
-    // console.log(fileType);
+    let validExtensions = ['image/jpeg', 'image/jpg', 'image/png', 'video/mp4', 'audio/mpeg'];
 
-    let validExtensions = ['image/jpeg', 'image/jpg', 'image/png'];
-
-    if(validExtensions.includes(fileType)){
+    if (validExtensions.includes(fileType)) {
         let fileReader = new FileReader();
-
         fileReader.onload = () => {
             let fileURL = fileReader.result;
-            //console.log(fileURL);
-            let imgTag = `<img src="${fileURL}" alt="">`
-            dragArea.innerHTML = imgTag;
+            let mediaTag;
+
+            if (fileType.startsWith('image/')) {
+                mediaTag = `<img src="${fileURL}" alt="">`;
+            } else if (fileType.startsWith('video/')) {
+                mediaTag = `<video controls src="${fileURL}"></video>`;
+            } else if (fileType.startsWith('audio/')) {
+                mediaTag = `<audio controls src="${fileURL}"></audio>`;
+            }
+
+            dragArea.innerHTML = mediaTag;
+
+            // Upload file to the server
+            uploadFile(file);
         };
         fileReader.readAsDataURL(file);
-    } else{
+    } else {
         alert('This file is not supported');
         dragArea.classList.remove('active');
     }
-    //console.log('The file is dropped in drag area');
 }
+
+function uploadFile(file) {
+    let formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+      .then(data => {
+        console.log(data);
+        alert('File uploaded successfully');
+    }).catch(error => {
+        console.error('Error uploading file:', error);
+        alert('Error uploading file');
+    });
+}
+

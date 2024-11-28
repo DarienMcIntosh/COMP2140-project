@@ -20,7 +20,7 @@ header  h1 span{
     font-weight: 100;
 }
 
-.manage{
+/*.manage{
     margin: 20px;
     background: #2b02bf;
     padding: 15px 40px 15px;
@@ -32,7 +32,26 @@ header  h1 span{
     display: block;
     transition: background-color 0.3s ease;
     margin-left: auto;
-    width: 10%;  
+}*/
+
+.click{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin: 20px;
+    background: #2b02bf;
+    padding: 8px 25px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-right: auto;
+    font-size: 15px;
+
 }
 
 .container{
@@ -47,6 +66,10 @@ header  h1 span{
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color:#ffffff;
+}
+
+.welcome{
+    font-size: 30px;
 }
 
 

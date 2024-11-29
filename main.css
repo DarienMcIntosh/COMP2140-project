@@ -6,6 +6,16 @@ body {
     background-color: #f4f4f4;
 }
 
+.logo{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
 .frank{
     color: white;
     font-size: 30px;

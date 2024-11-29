@@ -1,7 +1,7 @@
 // Teacher data in JSON format
 const teachersData = [
     {
-        "email": "toricarty@yahoo.com",
+        "email": " ",
         "name": "Tori Carty",
         "position": "Principal"
     },
@@ -19,7 +19,12 @@ const teachersData = [
         "email": "annsamuda@gmail.com",
         "name": "Ann Samuda",
         "position": "Grade Teacher"
-    }
+    },
+    {
+        "email": "marshmichelle621@gmail.com",
+        "name": "Asneth Bailey",
+        "position": "Grade Teacher"
+    },
 ];
 
 // Function to populate teacher dropdown
@@ -54,10 +59,19 @@ teacherDropdown.addEventListener("change", (event) => {
         teacherEmail.textContent = teacher.email;
 
         // Set up the email button
-        emailBtn.onclick = function () {
-            const mailtoLink = `mailto:${teacher.email}`;
-            window.location.href = mailtoLink;
-        };
+        if (teacher.email.trim() !== "") {
+            emailBtn.onclick = function () {
+                const mailtoLink = `mailto:${teacher.email.trim()}`;
+                window.location.href = mailtoLink;
+            };
+            emailBtn.textContent = "Send Email";
+            emailBtn.disabled = false;
+        } else {
+            // Handle no email case
+            emailBtn.onclick = null;
+            emailBtn.textContent = "No Email Provided";
+            emailBtn.disabled = true;
+        }
     } else {
         teacherInfo.classList.add("hidden");
     }

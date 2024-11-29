@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Resources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>School Resources</h1>
+
+        <!-- Section for Book Lists -->
+        <section>
+            <h2>View Book Lists</h2>
+            <p>Select a year group to view the corresponding book list.</p>
+            <form action="view-book-list.php" method="GET">
+                <label for="year-group">Select Year Group:</label>
+                <select name="year-group" id="year-group" required>
+                    <option value="infant1">Infant 1</option>
+                    <option value="infant2">Infant 2</option>
+                    <option value="infant3">Infant 3</option>
+                    <option value="grade1">Grade 1</option>
+                    <option value="grade2">Grade 2</option>
+                    <option value="grade3">Grade 3</option>
+                    <option value="grade4">Grade 4</option>
+                    <option value="grade5">Grade 5</option>
+                    <option value="grade6">Grade 6</option>
+                </select>
+                <button type="submit">View Book List</button>
+            </form>
+        </section>
+
+        <!-- Section for Forms -->
+        <section>
+            <h2>Download Forms</h2>
+            <p>Select a form to download:</p>
+            <form action="view-forms.php" method="GET">
+                <label for="form-type">Select Form Type:</label>
+                <select name="form-type" id="form-type" required>
+                    <option value="medical">Medical Form</option>
+                    <option value="registration">Registration Form</option>
+                    <option value="uniform">Uniform Form</option>
+                </select>
+                <button type="submit">View Form</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

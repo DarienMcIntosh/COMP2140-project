@@ -1,0 +1,96 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f8; /* Light gray background */
+    color: #333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 50px auto;  /* Center the container with more space from the top */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+h1 {
+    color: #1a5d8d; /* Blue color for title */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+/* Section Titles */
+h2 {
+    color: #f4a261; /* Yellow color for section titles */
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Book List and Form List Styling */
+.book-list, .form-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-list li, .form-list li {
+    padding: 12px;
+    margin: 15px 0;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: #1a5d8d;
+    text-align: center;
+}
+
+.book-list li a, .form-list li a {
+    color: #1a5d8d;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.book-list li a:hover, .form-list li a:hover {
+    color: #f4a261;
+    text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 30px;
+    background-color: #f4a261; /* Yellow button */
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #1a5d8d; /* Blue on hover */
+}
+
+@media print {
+    button {
+        display: none; /* Hide buttons during print */
+    }
+    .book-list li, .form-list li {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

@@ -14,7 +14,7 @@
         <section>
             <h2>View Book Lists</h2>
             <p>Select a year group to view the corresponding book list.</p>
-            <form action="view-book-list.php" method="GET">
+            <form id="book-list-form">
                 <label for="year-group">Select Year Group:</label>
                 <select name="year-group" id="year-group" required>
                     <option value="infant1">Infant 1</option>
@@ -35,7 +35,7 @@
         <section>
             <h2>Download Forms</h2>
             <p>Select a form to download:</p>
-            <form action="view-forms.php" method="GET">
+            <form id="form-list-form">
                 <label for="form-type">Select Form Type:</label>
                 <select name="form-type" id="form-type" required>
                     <option value="medical">Medical Form</option>
@@ -45,6 +45,11 @@
                 <button type="submit">View Form</button>
             </form>
         </section>
+
+        <!-- Container for results (AJAX response content will go here) -->
+        <div id="result-container"></div>
     </div>
+
+    <script src="viewformsbooklists.js"></script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Resources</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Resources</h1>
+
+        <!-- Add New Book List -->
+        <section id="add-booklist">
+            <h2>Add New Book List</h2>
+            <form id="add-booklist-form">
+                <label for="booklist-year">Year Group:</label>
+                <input type="text" id="booklist-year" name="year" required placeholder="e.g., grade1">
+
+                <label for="booklist-file">Select Book List PDF:</label>
+                <input type="file" id="booklist-file" name="file" accept="application/pdf" required>
+
+                <button type="submit">Add Book List</button>
+            </form>
+        </section>
+
+        <!-- Add New Form -->
+        <section id="add-form">
+            <h2>Add New Form</h2>
+            <form id="add-form-form">
+                <label for="form-type">Form Type:</label>
+                <input type="text" id="form-type" name="form-type" required placeholder="e.g., medical">
+
+                <label for="form-file">Select Form PDF:</label>
+                <input type="file" id="form-file" name="file" accept="application/pdf" required>
+
+                <button type="submit">Add Form</button>
+            </form>
+        </section>
+
+        <!-- Display Existing Book Lists -->
+        <section id="booklist-display">
+            <h2>Existing Book Lists</h2>
+            <div id="booklist-container">
+                <!-- Book list items will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Display Existing Forms -->
+        <section id="form-display">
+            <h2>Existing Forms</h2>
+            <div id="form-container">
+                <!-- Form items will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teachers List</title>
-    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Correct location for CSS link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles[1].css">
 </head>
 <body>
     <div class="container">
-        <h1>Teachers List</h1>
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo" class="logo-img">
+        </div>
 
-        <?php
-        $sql = "SELECT name, position, email FROM teachers";
-        $result = $conn->query($sql);
+        <h1>Meet Our Teachers</h1>
 
-        if ($result->num_rows > 0) {
-            echo "<table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Email</th>
-                    </tr>";
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>" . htmlspecialchars($row['name']) . "</td>
-                        <td>" . htmlspecialchars($row['position']) . "</td>
-                        <td>" . htmlspecialchars($row['email']) . "</td>
-                      </tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<p>No data available</p>";
-        }
+        <!-- Teacher Dropdown -->
+        <label for="teacher-dropdown">Select a Teacher:</label>
+        <select id="teacher-dropdown">
+            <option value="">Select a teacher</option>
+            <!-- Teacher names will be dynamically added here -->
+        </select>
 
-        $conn->close(); // Close connection
-        ?>
+        <!-- Teacher Info Table -->
+        <div id="teacher-info" class="teacher-info hidden">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td id="teacher-name"></td>
+                </tr>
+                <tr>
+                    <th>Position</th>
+                    <td id="teacher-position"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td id="teacher-email"></td>
+                </tr>
+            </table>
+            <button id="email-btn">Send Email</button>
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

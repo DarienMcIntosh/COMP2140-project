@@ -8,39 +8,72 @@ document.addEventListener('DOMContentLoaded', () => {
     loadResources();
 
     // Handle adding a new book list
-    booklistForm.addEventListener('submit', (e) => {
+    booklistForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const year = document.getElementById('booklist-year').value;
         const file = document.getElementById('booklist-file').files[0];
 
         if (file && year) {
-            const newBooklist = { year, file: file.name };
-            addResource('booklists', newBooklist);
+            const uploadedFileName = await uploadFile(file, '/upload'); // Upload the file
+            if (uploadedFileName) {
+                const newBooklist = { year, file: uploadedFileName };
+                addResource('booklists', newBooklist);
+                loadResources();
+            } else {
+                alert('File upload failed');
+            }
         }
     });
 
     // Handle adding a new form
-    formForm.addEventListener('submit', (e) => {
+    formForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const formType = document.getElementById('form-type').value;
         const file = document.getElementById('form-file').files[0];
 
         if (file && formType) {
-            const newForm = { type: formType, file: file.name };
-            addResource('forms', newForm);
+            const uploadedFileName = await uploadFile(file, '/upload'); // Upload the file
+            if (uploadedFileName) {
+                const newForm = { type: formType, file: uploadedFileName };
+                addResource('forms', newForm);
+                loadResources();
+            } else {
+                alert('File upload failed');
+            }
         }
     });
 
+    // Function to upload a file
+    async function uploadFile(file, uploadUrl) {
+        try {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch(uploadUrl, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                return data.fileName; // Assume the server responds with { fileName: "uploadedFileName" }
+            } else {
+                console.error('File upload failed:', response.statusText);
+                return null;
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            return null;
+        }
+    }
+
     // Function to add a new resource (booklist/form)
     function addResource(type, resource) {
-        let resources = JSON.parse(localStorage.getItem(type)) || [];
+        const resources = JSON.parse(localStorage.getItem(type)) || [];
         resources.push(resource);
         localStorage.setItem(type, JSON.stringify(resources));
-
-        // Reload the page to reflect changes
-        loadResources();
     }
 
     // Function to load resources from localStorage
@@ -55,7 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
         booklists.forEach((booklist, index) => {
             const booklistDiv = document.createElement('div');
             booklistDiv.innerHTML = `
-                <p>${booklist.year} - <a href="Booklists/${booklist.file}" target="_blank">View</a> | <button onclick="deleteResource('booklists', ${index})">Delete</button></p>
+                <p>${booklist.year} - 
+                    <a href="/Booklists/${booklist.file}" target="_blank" download="${booklist.file}">Download PDF</a> | 
+                    <button onclick="deleteResource('booklists', ${index})">Delete</button>
+                </p>
             `;
             booklistContainer.appendChild(booklistDiv);
         });
@@ -64,7 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
         forms.forEach((form, index) => {
             const formDiv = document.createElement('div');
             formDiv.innerHTML = `
-                <p>${form.type} - <a href="Forms/${form.file}" target="_blank">View</a> | <button onclick="deleteResource('forms', ${index})">Delete</button></p>
+                <p>${form.type} - 
+                    <a href="/Forms/${form.file}" target="_blank" download="${form.file}">Download PDF</a> | 
+                    <button onclick="deleteResource('forms', ${index})">Delete</button>
+                </p>
             `;
             formContainer.appendChild(formDiv);
         });
@@ -72,11 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to delete a resource
     window.deleteResource = (type, index) => {
-        let resources = JSON.parse(localStorage.getItem(type)) || [];
+        const resources = JSON.parse(localStorage.getItem(type)) || [];
         resources.splice(index, 1);
         localStorage.setItem(type, JSON.stringify(resources));
-
-        // Reload the page to reflect changes
         loadResources();
     };
 });

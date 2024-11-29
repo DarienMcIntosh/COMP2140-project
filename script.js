@@ -55,7 +55,7 @@ teacherDropdown.addEventListener("change", (event) => {
 
         // Set up the email button
         emailBtn.onclick = function () {
-            const mailtoLink = "mailto:${teacher.email}";
+            const mailtoLink = `mailto:${teacher.email}`;
             window.location.href = mailtoLink;
         };
     } else {

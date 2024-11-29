@@ -8,7 +8,13 @@
     <title>Login Page</title>
 </head>
 <body>
+    <header>
+        <h1>The Frankfield Primary & <span> Infant School Gallery</span></h1>
+    </header>
+    <div class="click">
     <a href="SchoolDashboard.html" class="btn"> &#9664; Back to Dashboard</a>
+    <a href="gallery.html" class="gallery">Go to Gallery</a>
+    </div>
     <div class="container">
         <h3>Upload Media</h3>
         <div class="drag-area">
@@ -17,10 +23,17 @@
             </div>
 
             <span class="header">Drag & Drop </span>
-            <span class="header">or <span class="button">browse</span> </span>
-            <input type="file" hidden />
-            <span class="support">Supports: JPEG, JPG, PNG</span>
+            <span class="header">or</span>
+            <button class="file-selector">Browse Files</button>
+            <input type="file" class="file-selector-input" multiple>
+            <span class="support">Supports: JPEG, JPG, PNG, MP4</span>
+        </div>
+        <div class="list-section">
+            <div class="list-title">Uploaded Files</div>
+            <div class="list"></div>
         </div>
     </div>
+    
+    <script src="upload.js"></script>
 </body>
 </html>

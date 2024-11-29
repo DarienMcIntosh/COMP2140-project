@@ -1,0 +1,9 @@
+Thursday, November 28, 2024, 7:24:53 PM Europe/Berlin - Add: {"id":15,"title":"New Event","description":"Description","date":"2024-12-01","time":"10:00","category":"General"}
+Thursday, November 28, 2024, 7:33:20 PM Europe/Berlin - Update: {"id":"7","title":"History Seminar","description":"Guest speaker on historical topics.","date":"2024-11-20","time":"11:00","category":"Academics"}
+Thursday, November 28, 2024, 7:34:23 PM Europe/Berlin - Delete: {"id":"7"}
+Thursday, November 28, 2024, 8:20:10 PM Europe/Berlin - Delete: {"id":"15"}
+Thursday, November 28, 2024 at 8:26:24 PM - Add: {"id":16,"title":"Netball Rally","description":"Exciting netball competition with spirited team play.","date":"2024-11-21","time":"22:00","category":"Sports"}
+Thursday, November 28, 2024 at 8:32:37 PM - Update: {"id":"3","title":"Art Exhibition","description":"Showcase of student artwork.","date":"2024-12-08","time":"14:30","category":"Arts"}
+Thursday, November 28, 2024 at 8:55:35 PM - Update: {"id":"16","title":"Netball Rally","description":"Exciting netball competition with spirited team play.","date":"2024-11-21","time":"10:00","category":"Sports"}
+Thursday, November 28, 2024 at 8:56:42 PM - Add: {"id":17,"title":"Football Match","description":"Frankfield Primary vs Hillside Primary","date":"2024-12-04","time":"10:45","category":"Sports"}
+Friday, November 29, 2024 at 1:59:43 AM - Update: {"id":"10","title":"Parent-Teacher Meeting","description":"Discussion about student progress and school activities.","date":"2024-12-13","time":"10:30","category":"Meetings"}

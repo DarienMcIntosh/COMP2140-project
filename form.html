@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Manage Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        form { margin: 20px 0; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { width: 100%; padding: 8px; margin: 5px 0 10px; }
+        button { padding: 10px 20px; cursor: pointer; margin-right: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel - Manage Events</h1>
+    
+    <!-- Add Event Form -->
+    <form id="event-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="Sports">Sports</option>
+            <option value="Academics">Academics</option>
+            <option value="Arts">Arts</option>
+            <option value="Meetings">Meetings</option>
+        </select>
+
+        <button type="submit">Add Event</button>
+    </form>
+
+    <!-- Edit Event Form -->
+    <form id="edit-form" class="hidden">
+        <label for="edit-title">Title:</label>
+        <input type="text" id="edit-title" name="title" required>
+
+        <label for="edit-description">Description:</label>
+        <input type="text" id="edit-description" name="description" required>
+
+        <label for="edit-date">Date:</label>
+        <input type="date" id="edit-date" name="date" required>
+
+        <label for="edit-time">Time:</label>
+        <input type="time" id="edit-time" name="time" required>
+
+        <label for="edit-category">Category:</label>
+        <select id="edit-category" name="category" required>
+            <option value="Sports">Sports</option>
+            <option value="Academics">Academics</option>
+            <option value="Arts">Arts</option>
+            <option value="Meetings">Meetings</option>
+        </select>
+
+        <button type="submit">Update Event</button>
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+    </form>
+
+    <!-- Events List -->
+    <h2>Current Events</h2>
+    <table id="events-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Events will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="form.js"></script>
+</body>
+</html>

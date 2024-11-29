@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Events Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+</head>
+<body>
+    <h1>School Events Calendar</h1>
+    
+    <!-- Category Filter -->
+    <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="Academics">Academics</option>
+        <option value="Sports">Sports</option>
+        <option value="Arts">Arts</option>
+        <option value="Meetings">Meetings</option>
+    </select>
+
+    <!-- Calendar Div -->
+    <div id="calendar"></div>
+    
+    <!-- Form Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="form-btn">Go to Form</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('form-btn').onclick = function () {
+            window.location.href = 'form.html';
+        };
+    </script>
+</body>
+</html>

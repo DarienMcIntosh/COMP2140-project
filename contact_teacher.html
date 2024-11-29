@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers List</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Correct location for CSS link -->
+</head>
+<body>
+    <div class="container">
+        <h1>Teachers List</h1>
+
+        <?php
+        $sql = "SELECT name, position, email FROM teachers";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Email</th>
+                    </tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . htmlspecialchars($row['name']) . "</td>
+                        <td>" . htmlspecialchars($row['position']) . "</td>
+                        <td>" . htmlspecialchars($row['email']) . "</td>
+                      </tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>No data available</p>";
+        }
+
+        $conn->close(); // Close connection
+        ?>
+    </div>
+</body>
+</html>

@@ -57,7 +57,7 @@ app.post('/submitFeedback', (req, res) => {
                 res.status(500).json({ success: false, message: 'Failed to send notification email.' });
             } else {
                 console.log('Email sent:', info.response);
-                res.status(200).json({ success: true });
+                res.status(500).json({ success: true });
             }
         });
 

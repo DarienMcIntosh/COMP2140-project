@@ -14,33 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
     async function fetchEvents(info, successCallback, failureCallback) {
         const category = document.getElementById('categoryFilter').value;
         try {
-            const response = await fetch('server.php?action=events'); // Match this with the PHP endpoint
+            const response = await fetch('http://localhost:3000/events');
             const data = await response.json();
-            console.log('Fetched events:', data); // Debugging line
+            const events = data.data.map(event => ({
+                title: event.title,
+                start: `${event.date}T${event.time}`,
+                description: event.description,
+                category: event.category
+            }));
 
-            if (data.message === "success" && Array.isArray(data.data)) {
-                const events = data.data.map(event => ({
-                    title: event.title,
-                    start: `${event.date}T${event.time}`,
-                    description: event.description,
-                    category: event.category
-                }));
-                
-                console.log('Mapped events:', events); // Debugging line
-                
-                const filteredEvents = category === 'all' 
-                    ? events 
-                    : events.filter(event => event.category === category);
-                
-                console.log('Filtered events:', filteredEvents); // Debugging line
-                
-                successCallback(filteredEvents);
-            } else {
-                console.error('Error fetching events:', data.error || 'Unexpected response format'); // Debugging line
-                failureCallback('No events data');
-            }
+            const filteredEvents = category === 'all' 
+                ? events 
+                : events.filter(event => event.category === category);
+
+            successCallback(filteredEvents);
         } catch (error) {
-            console.error('Error fetching events:', error); // Debugging line
             failureCallback(error);
         }
     }

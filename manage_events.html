@@ -5,21 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Manage Events</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        form { margin: 20px 0; }
-        label { display: block; margin: 10px 0 5px; }
-        input, select { width: 100%; padding: 8px; margin: 5px 0 10px; }
-        button { padding: 10px 20px; cursor: pointer; margin-right: 10px; }
-        .hidden { display: none; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff7e6; /* Light peach background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #ff7f50; /* Coral color for header */
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px; /* Increased width for form */
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ffcc99; /* Light orange border */
+            border-radius: 10px;
+            background-color: #ffe5b4; /* Peach background for form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a little shadow for cuteness */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #ff4500; /* Orange-red color for labels */
+        }
+
+        input, select {
+            width: calc(100% - 20px); /* Adjusted width to match the form */
+            padding: 10px; /* Increased padding for a nicer feel */
+            margin: 5px 0 10px;
+            border: 1px solid #ffcc99; /* Light orange border for inputs and select */
+            border-radius: 10px; /* Rounded corners for cuteness */
+            background-color: #fff0e6; /* Very light peach background for inputs */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7f50; /* Coral background for button */
+            color: white;
+            border: none;
+            border-radius: 10px; /* Rounded corners for cuteness */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #ff4500; /* Darker orange-red on hover */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffcc99; /* Light orange background for table headers */
+        }
+
+        td {
+            background-color: #fff7e6; /* Light peach background for table cells */
+        }
     </style>
 </head>
 <body>
     <h1>Admin Panel - Manage Events</h1>
-    
-    <!-- Add Event Form -->
     <form id="event-form">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
@@ -44,8 +111,7 @@
         <button type="submit">Add Event</button>
     </form>
 
-    <!-- Edit Event Form -->
-    <form id="edit-form" class="hidden">
+    <form id="edit-form" style="display: none;">
         <label for="edit-title">Title:</label>
         <input type="text" id="edit-title" name="title" required>
 
@@ -67,10 +133,8 @@
         </select>
 
         <button type="submit">Update Event</button>
-        <button type="button" onclick="cancelEdit()">Cancel</button>
     </form>
 
-    <!-- Events List -->
     <h2>Current Events</h2>
     <table id="events-table">
         <thead>
@@ -88,6 +152,6 @@
         </tbody>
     </table>
 
-    <script src="admin.js"></script>
+    <script src="manage_events.js"></script>
 </body>
 </html>

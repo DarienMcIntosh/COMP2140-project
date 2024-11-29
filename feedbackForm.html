@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Submit Feedback</title>
@@ -45,7 +44,7 @@
             })
                 .then(response => response.text())
                 .then(message => {
-                    document.getElementById('responseMessage').innerText = message;
+                    document.getElementById('responseMessage').innerText = 'Thank You! Your Feedback was Sent Successfully.';
                     form.reset();
                 })
                 .catch(error => {

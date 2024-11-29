@@ -7,37 +7,11 @@ error_reporting(E_ALL);
 // Connect to SQLite database
 $database = new SQLite3('school.db');
 
-
 // Function to log actions
 function logChange($action, $event) { 
     $timestamp = date('l, F j, Y \a\t g:i:s A'); 
     $logEntry = "$timestamp - $action: " . json_encode($event) . "\n"; 
-    $logFile = 'event_log.txt';
-    
-    if (file_put_contents($logFile, $logEntry, FILE_APPEND) === false) {
-        error_log("Failed to write to log file: $logFile");
-    } else {
-        error_log("Successfully logged action: $action");
-    }
-}
-
-
-// Endpoint to handle login
-function handleLogin($db) {
-    $input = json_decode(file_get_contents('php://input'), true);
-    $username = $input['username'];
-    $password = $input['password'];
-    $sql = 'SELECT * FROM users WHERE username = :username';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':username', $username, SQLITE3_TEXT);
-    $result = $stmt->execute();
-    $user = $result->fetchArray(SQLITE3_ASSOC);
-
-    if ($user && password_verify($password, $user['password'])) {
-        echo json_encode(["success" => true]);
-    } else {
-        echo json_encode(["success" => false]);
-    }
+    file_put_contents('event_log.txt', $logEntry, FILE_APPEND); 
 }
 
 // Endpoint to get events

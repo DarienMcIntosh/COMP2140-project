@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Manage Book Lists and Forms</title>
+    <<link rel="stylesheet" href="../admin-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome, Admin! Here you can manage the book lists and forms.</p>
+
+        <!-- Section for managing Book Lists -->
+        <section>
+            <h2>Manage Book Lists</h2>
+            <ul>
+                <li><a href="manage.php?action=add&type=booklist">Add New Book List</a></li>
+                <li><a href="manage.php?action=update&type=booklist">Update Existing Book List</a></li>
+                <li><a href="manage.php?action=delete&type=booklist">Delete Book List</a></li>
+            </ul>
+        </section>
+
+        <!-- Section for managing Forms -->
+        <section>
+            <h2>Manage Forms</h2>
+            <ul>
+                <li><a href="manage.php?action=add&type=form">Add New Form</a></li>
+                <li><a href="manage.php?action=update&type=form">Update Existing Form</a></li>
+                <li><a href="manage.php?action=delete&type=form">Delete Form</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p><a href="../index.html">Back to Frontend</a></p>
+        </footer>
+    </div>
+</body>
+</html>

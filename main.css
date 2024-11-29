@@ -172,7 +172,7 @@ h2, p{
 }
 
 @media only screen and (max-width: 769px){
-    main{
+    header main{
         flex-direction: column;
         width: 95%;
     }
